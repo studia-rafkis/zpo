@@ -29,11 +29,9 @@ public class SecurityConfig {
                 .sessionManagement(customizer -> customizer.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests((requests) -> requests
                         .requestMatchers(HttpMethod.POST, "/login", "/register").permitAll()
-                        // Dostęp do obrazków będzie dostępny dla wszystkich
                         .requestMatchers("/products/image/**").permitAll()
                         .requestMatchers("/products/all").permitAll()
                         .requestMatchers("/products/id/**").permitAll()
-                        // Wszystkie inne ścieżki /products/... będą dostępne tylko dla ról "ADMIN"
                         .requestMatchers("/products/**").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.GET,"/verify").permitAll()
                         .anyRequest().authenticated())
