@@ -1,0 +1,81 @@
+package com.shop.backend.dtos;
+import com.shop.backend.entities.Order;
+import com.shop.backend.entities.OrderStatus;
+import com.shop.backend.entities.Promocode;
+import com.shop.backend.entities.payu.PaymentInfo;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class OrderPaymentInfoDto {
+    private Long ido;
+    private boolean isCompany;
+    private String firstName;
+    private String lastName;
+    private String email;
+    private String phone;
+    private String street;
+    private String streetNumber;
+    private String houseNumber;
+    private String country;
+    private String state;
+    private String zipCode;
+    private String firstName2;
+    private String lastName2;
+    private String email2;
+    private String phone2;
+    private String street2;
+    private String streetNumber2;
+    private String houseNumber2;
+    private String country2;
+    private String state2;
+    private String zipCode2;
+    private Promocode promocode;
+    private Long id;
+    private String payuOrderId;
+    private String orderCreateDate;
+    private Long totalAmount;
+    private String paymentStatus;
+    private String paymentId;
+    private boolean isNew;
+    private OrderStatus orderStatus;
+    private String orderNotes;
+    private boolean isActive;
+    public OrderPaymentInfoDto(Order order, PaymentInfo paymentInfo) {
+        this.ido = order.getIdo();
+        this.isCompany = order.isCompany();
+        this.firstName = order.getFirstName();
+        this.lastName = order.getLastName();
+        this.email = order.getEmail();
+        this.phone = order.getPhone();
+        this.street = order.getStreet();
+        this.streetNumber = order.getStreetNumber();
+        this.houseNumber = order.getHouseNumber();
+        this.country = order.getCountry();
+        this.state = order.getState();
+        this.zipCode = order.getZipCode();
+        this.firstName2 = order.getFirstName2();
+        this.lastName2 = order.getLastName2();
+        this.email2 = order.getEmail2();
+        this.phone2 = order.getPhone2();
+        this.street2 = order.getStreet2();
+        this.streetNumber2 = order.getStreetNumber2();
+        this.houseNumber2 = order.getHouseNumber2();
+        this.country2 = order.getCountry2();
+        this.state2 = order.getState2();
+        this.zipCode2 = order.getZipCode2();
+        this.promocode = order.getPromocode();
+        this.isActive = order.isActive();
+        this.orderStatus = order.getOrderStatus();
+        this.orderNotes = order.getOrderNotes();
+        this.id = paymentInfo.getId();
+        this.payuOrderId = paymentInfo.getPayuOrderId();
+        this.orderCreateDate = paymentInfo.getOrderCreateDate();
+        this.totalAmount = paymentInfo.getTotalAmount();
+        this.paymentStatus = paymentInfo.getPaymentStatus();
+        this.paymentId = paymentInfo.getPaymentId();
+        this.isNew = paymentInfo.isNew();
+    }
+}
